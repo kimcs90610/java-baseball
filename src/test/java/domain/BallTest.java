@@ -4,10 +4,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-class BaseballTest {
+class BallTest {
 
 
     // 게임 로직 -> 랜덤 3자리 ,,, 유저 3개 입력 3/ 3 비교 결과
@@ -71,5 +73,11 @@ class BaseballTest {
     // Controller => M (domaion), View // 2개를 제어 하는
     // view 제일 마지막
     // domain 로직 -> 로직 결과만 view
-    
+    // 1 1개
+    // 최종 3개 3개를 비교 -> 복잡해 .. 람다//
+    // comBall 3개, userBall 1개
+    // 123(123), 2(1) -> 결과
+
+
+
 }
