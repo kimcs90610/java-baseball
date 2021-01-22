@@ -13,14 +13,13 @@ public class GameController {
 
     public GameController() {
         this.isStart = true;
-        this.initComBalls();
+        this.createComBalls();
     }
 
     public void baseBallGameStart() {
 
         while(this.isStart) {
             BaseballView baseballView = new BaseballView();
-
             baseballView.init();
 
             BaseballGameResult baseballGameResult = new BaseballGameResult(this.comBalls.compareBalls(baseballView.getUserBalls()));
@@ -35,11 +34,11 @@ public class GameController {
         this.isStart = baseballView.restartCheck(baseballGameResult.getResult());
 
         if (RestartNumber.RESTART_GAME.getRestartNumber().equals(baseballView.getRestartGameNumber())) {
-            initComBalls();
+            createComBalls();
         }
     }
 
-    private void initComBalls() {
+    private void createComBalls() {
         List<String> numberList = Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9");
         Collections.shuffle(numberList);
 

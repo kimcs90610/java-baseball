@@ -21,10 +21,6 @@ public class BaseballView {
         return this.restartGameNumber;
     }
 
-    public Set<String> getNumberReceived() {
-        return this.numberSetReceived;
-    }
-
     public Balls getUserBalls() {
         return this.userBalls;
     }
@@ -33,6 +29,16 @@ public class BaseballView {
         viewPrinter.print("숫자를 입력해주세요 : ");
         this.receivedInputNumber();
         this.userBalls = new Balls(new ArrayList<>(numberSetReceived));
+    }
+
+    public boolean restartCheck(List<BaseballResult> result) {
+        if (Collections.frequency(result, BaseballResult.STRIKE) == 3) {
+            viewPrinter.print("3개의 숫자를 모두 맞히셨습니다! 게임종료");
+            viewPrinter.print("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+            this.whetherToRestart();
+        }
+
+        return !this.restartGameNumber.equals(RestartNumber.DONT_START_GAME.getRestartNumber());
     }
 
     private void receivedInputNumber() {
@@ -55,16 +61,6 @@ public class BaseballView {
             viewPrinter.print("서로 다른 3자리 수를 입력해주세요.");
             this.init();
         }
-    }
-
-    public boolean restartCheck(List<BaseballResult> result) {
-        if (Collections.frequency(result, BaseballResult.STRIKE) == 3) {
-            viewPrinter.print("3개의 숫자를 모두 맞히셨습니다! 게임종료");
-            viewPrinter.print("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-            this.whetherToRestart();
-        }
-
-        return !this.restartGameNumber.equals(RestartNumber.DONT_START_GAME.getRestartNumber());
     }
 
     private void whetherToRestart() {
