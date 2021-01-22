@@ -4,10 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class BallTest {
 
@@ -55,7 +52,6 @@ class BallTest {
     @Test
     @DisplayName("Ball Test")
     void ballTest() {
-
         Ball userBall = new Ball(3, 2); //value == value, posiont x
         assertThat(comBall.compare(userBall)).isEqualTo(BaseballResult.BALL);
     }
@@ -77,7 +73,5 @@ class BallTest {
     // 최종 3개 3개를 비교 -> 복잡해 .. 람다//
     // comBall 3개, userBall 1개
     // 123(123), 2(1) -> 결과
-
-
 
 }

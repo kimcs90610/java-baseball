@@ -5,10 +5,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class BallsTest {
 
@@ -39,7 +37,7 @@ class BallsTest {
     @Test
     void 볼즈_볼_테스트() {
 
-        Ball userBall = new Ball(1, 2);
+        Ball userBall = new Ball(3, 2);
         assertThat(comBalls.compareBall(userBall)).isEqualTo(BaseballResult.BALL);
     }
 
@@ -66,6 +64,35 @@ class BallsTest {
 
         BaseballGameResult result = new BaseballGameResult(comBalls.compareBalls(userBalls));
 
-
+        assertThat(result.getResult()).isEqualTo(Arrays.asList(BaseballResult.NOTHING, BaseballResult.NOTHING, BaseballResult.NOTHING));
     }
+
+    @Test
+    void ballsOneStrikeTest() {
+        userBalls = new Balls(Arrays.asList("1", "5", "6"));
+
+        BaseballGameResult result = new BaseballGameResult(comBalls.compareBalls(userBalls));
+
+        assertThat(result.getResult()).isEqualTo(Arrays.asList(BaseballResult.STRIKE, BaseballResult.NOTHING, BaseballResult.NOTHING));
+    }
+
+/*    @Test
+    void 투_스트라이크_테스트() {
+        userBalls = new Balls(Arrays.asList("1", "2", "6"));
+
+        BaseballGameResult result = new BaseballGameResult(comBalls.compareBalls(userBalls));
+
+        assertThat(result.getResult()).isEqualTo(Arrays.asList(BaseballResult.STRIKE, BaseballResult.STRIKE, BaseballResult.NOTHING));
+    }
+
+    @Test
+    @ParameterizedTest
+    void 원_볼_테스트() {
+        userBalls = new Balls(Arrays.asList("3", "4", "6"));
+
+        BaseballGameResult result = new BaseballGameResult(comBalls.compareBalls(userBalls));
+
+        assertThat(result.getResult()).isEqualTo(Arrays.asList(BaseballResult.NOTHING, BaseballResult.NOTHING, BaseballResult.BALL));
+    }*/
+
 }

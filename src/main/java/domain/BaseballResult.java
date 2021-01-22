@@ -1,7 +1,7 @@
 package domain;
 
 public enum BaseballResult {
-    STRIKE,
-    BALL,
-    NOTHING
+    STRIKE(),
+    BALL(),
+    NOTHING()
 }
